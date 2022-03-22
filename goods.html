@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/alerts.css">
+    <title>Mercadorias</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="brand" id="grid-1">
+                    <img src="img/logo.png" alt="logotipo">
+                </div>
+                <div id="grid-2">
+                    <ul class="options">
+                        <a href="dashboard.html"><li>Dashboard</li></a>
+                        <a href="goods.html"><li class="active">Mercadorias</li></a>
+                        <a href="users.html"><li>Usuários</li></a>
+                    </ul>
+                </div>
+                <div id="grid-3">
+                    <div id="user-loged">
+                        <p>Logado como - <b id="user"></b></p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Mercadorias</h1>
+        <div class="form">
+            <input id="product_name" type="text" placeholder="Nome do produto">
+            <input id="product_value" type="text" placeholder="Valor">
+            <input id="product_serial" type="text" placeholder="Serial">
+            <button onclick="add_product()">Adicionar</button>
+        </div>
+
+        <table id="table-goods">
+            <thead>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Serial</th>
+                <th>Ações</th>
+            </thead>
+            <tbody id="data-table"></tbody>
+        </table>
+
+        <h1>Carrinho</h1>
+
+        <div class="form form-cart">
+            <input id="product_serial_cart" type="number" placeholder="Serial">
+            <input id="product_qntd_cart" type="number" placeholder="Quantidade">
+            <button onclick="addProductFromFormToCart()">Adicionar ao carrinho</button>
+        </div>
+        
+            <table id="table-goods">
+                <thead>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Serial</th>
+                    <th>Qntd</th>
+                    <th>Total</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody id="data-table-cart"></tbody>
+            </table>
+
+        <h1>Total: R$<b id="total">0</b></h1>
+        <button id="purchase" onclick="purchase()">Finalizar Compra</button>
+        <h1>Faturamento: R$<b id="revenues"></b></h1>
+
+        <div id="edit-form"></div>
+    </div>
+
+
+    <script src="js/database.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/goods.js"></script>
+</body>
+</html>

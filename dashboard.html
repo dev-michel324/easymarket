@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/alerts.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="brand" id="grid-1">
+                    <img src="img/logo.png" alt="logotipo">
+                </div>
+                <div id="grid-2">
+                    <ul class="options">
+                        <a href="dashboard.html"><li class="active">Dashboard</li></a>
+                        <a href="goods.html"><li>Mercadorias</li></a>
+                        <a href="users.html"><li>Usuários</li></a>
+                    </ul>
+                </div>
+                <div id="grid-3">
+                    <div id="user-loged">
+                        <p>Logado como - <b id="user"></b></p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Dashboard</h1>
+            <div class="container-flex">
+                <div class="img-logo">
+                    <img src="img/logo.png" alt="logotipo">
+                </div>
+                <div class="info">
+                    <div class="info-div">
+                        <h1>Faturamento:</h1>
+                        <h1><b id="revenues"></b></h1>
+                    </div>
+                    <div class="info-div">
+                        <h1>Vendas fechadas:</h1>
+                        <h1><b id="closed-sell"></b></h1>
+                    </div>
+                </div>
+                    
+            </div>
+            <button id="btn-loggout" onclick="loggout()">Sair</button>
+            <script src="js/dashboard.js"></script>
+        </div>
+    </main>
+    
+</body>
+</html>

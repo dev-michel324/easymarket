@@ -1,0 +1,247 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(209, 208, 208, 0.5);
+}
+
+header{
+    border-bottom: 3px solid grey;
+    margin-bottom: 2em;
+}
+
+nav img{
+    width: 5em;
+    height: 5em;
+}
+
+.nav-container{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    position: relative;
+    grid-template-rows: auto;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(107, 48, 0);
+    font-family: Arial Narrow, sans-serif;
+}
+
+#grid-3{
+    text-align: right;
+}
+
+#user-loged{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0.5em;
+    color: #6a4f40;
+    font-family: Arial Narrow, sans-serif;
+}
+
+nav h2{
+    position: absolute;
+}
+
+header ul li{
+    display: inline-block;
+}
+
+.options{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 15pt;
+    text-align: center;
+}
+
+.options li{
+    margin-right: 1em;
+}
+
+.options li:hover{
+    transform: scale(1.15);
+    text-shadow: 0px 0px 5px rgba(112, 60, 0, 0.712);
+    transition: 0.4s;
+}
+
+.active{
+    color: rgb(59, 22, 0);
+    font-weight: bold;
+}
+
+.container{
+    background-color: rgb(218, 214, 214);
+    position: relative;
+    padding: 1em;
+    border-radius: 1em;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 0.2em 0.3em 0.3em grey;
+}
+
+.icon{
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+b{
+    color: rgb(71, 29, 1);
+}
+
+#obs{
+    text-align: center;
+    color: rgb(216, 0, 0);
+    font-family: Arial Narrow, sans-serif;
+    font-size: 9pt;
+}
+
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #6a4f40;
+    text-shadow: 0.1em 0.05em 0.1em rgba(255, 255, 255, 0.527);
+}
+
+#btn-loggout{
+    width: 5em;
+    background-color: rgba(180, 180, 180, 0.9);
+    height: 2.5em;
+    border: none;
+    border-bottom: 3px solid rgb(141, 76, 23);
+    font-family: Arial Narrow, sans-serif	;
+}
+
+#btn-loggout:hover{
+    cursor: pointer;
+    background-color: rgba(206, 0, 0, 0.596);
+    border-bottom: 3px solid rgb(141, 23, 23);
+    transition: 0.4s;
+}
+
+.container-flex{
+    display: flex;
+}
+
+.img-logo{
+    width: 100%;
+}
+
+.img-logo img{
+    position: relative;
+    width: 50%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info{
+    width: 100%;
+    
+}
+
+.info-div{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.5em;
+    margin-bottom: 2em;
+    height: 6em;
+    text-align: center;
+    background-color: rgb(182, 182, 182);
+    width: 20em;
+}
+
+.info-div:hover{
+    background-color: rgba(116, 84, 64, 0.349);
+    transition: 0.3s;
+}
+
+.form{
+    position: relative;
+    width: 41.2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form-cart{
+    width: 33em;
+}
+
+input{
+    padding: 0.5em;
+    border: none;
+    border-bottom: 3px solid #6a4f40;
+}
+
+input:hover{
+    border-bottom: 3px solid rgb(141, 76, 23);
+    transition: 0.4s;
+    background-color: rgb(233, 231, 231);
+}
+
+input:focus{
+    border-bottom: 3px solid black;
+}
+
+button{
+    padding: 0.5em;
+    border: none;
+    border-bottom: 3px solid rgb(141, 76, 23);
+}
+
+button:hover{
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: rgba(12, 207, 12, 0.5);
+    color: white;
+    border-bottom: 3px solid rgba(13, 116, 13, 0.5);
+}
+
+table th{
+    color: #4e3a30;
+    background-color: #9760429a;
+}
+
+table{
+    position: relative;
+    text-align: center;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1em;
+    border-collapse: collapse;
+    font-family: Arial Narrow, sans-serif;
+    font-size: 15pt;
+    border-bottom: 3px solid #6a4f40;
+}
+
+#purchase{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+thead{
+    background-color: rgb(145, 143, 143);
+}
+
+th{
+    border-bottom: 3px solid #6a4f40;
+}
+
+th:hover{
+    border-bottom: 3px solid white;
+}
+
+tr:hover{
+    background-color: rgba(124, 83, 64, 0.342);
+}

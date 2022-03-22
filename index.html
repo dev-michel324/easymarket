@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padaria</title>
+    <link rel="stylesheet" href="css/style-index.css">
+    <script src="js/database.js"></script>
+</head>
+<body>  
+    <nav>
+        <div class="nav-top">
+            <div class="grid-1">
+                <img src="img/logo.png" alt="logotipo">
+            </div>
+            <div class="grid-2">
+                <div class="form">
+                    <input type="text" placeholder="Usuário" id="username">
+                    <input type="password" placeholder="Senha" id="password">
+                    <button id="login" onclick="login()">Acessar</button>
+                </div>
+            </div> 
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="info-1">
+                <h2>MAIS VENDIDOS</h2>
+                <div class="products-container">
+                    <div class="product">
+                        <div class="image-product">
+                            <img src="img/home-products/bolo.png" alt="bolo de chocolate">
+                        </div>
+                        <div class="product-name">
+                            <h3>Bolo de Chocolate</h3>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="image-product">
+                            <img src="img/home-products/pão.png" alt="pão francês">
+                        </div>
+                        <div class="product-name">
+                            <h3>Pão Francês</h3>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="image-product">
+                            <img src="img/home-products/salgados.png" alt="salgados">
+                        </div>
+                        <div class="product-name">
+                            <h3>Salgados</h3>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="image-product">
+                            <img src="img/home-products/bolachas.png" alt="bolachas">
+                        </div>
+                        <div class="product-name">
+                            <h3>Bolachas Caseiras</h3>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <div class="info-2">
+                <div class="sub-info1"></div>
+                <div class="sub-info2">
+                    <div class="info-div">
+                        <div class="info-head">
+                            <h2>NOSSA HISTÓRIA</h2>
+                        </div>
+                        <div class="info-description">
+                            <p>Iniciamos nossas atividades em 1983, nosso objetivo é aprimorar os processos para a melhoria da qualidade, da panificação e a confeitaria em geral. Através da grande variedade de pães, bolos, salgados, folhados, pizzas, doces e tortas confeitadas que ofereceremos, destacamos a relação com nossos clientes, pautada na fidelidade, esse é o orgulho do nosso trabalho.</p>
+                        </div>
+                    </div>
+                    <div class="info-div">
+                        <div class="info-head">
+                            <h2>ESTRUTURA</h2>
+                        </div>
+                        <div class="info-description">
+                            <p>Nossa estrutura possui uma área de 1150 metros quadrados com estacionamento confortável e de fácil acesso, muito bem estruturada desde a produção ao atendimento no balcão, sempre focado na higiene e profissionais capacitados.</p>
+                        </div>
+                    </div>
+                    <div class="info-div">
+                        <div class="info-head">
+                            <h2>ORGULHO DE SER DA ILHA</h2>
+                        </div>
+                        <div class="info-description">
+                            <p>Nos orgulhamos da nossa identidade e de sua identificação com os clientes, buscamos manter os valores e tradições que temos há mais de 20 anos, alinhados à região da Ilha, patrimônio mundial da humanidade. Nossa localização permite que você desfrute de todas as belezas que a região oferece.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="info-3">
+                <div class="contact-info1">
+                    <h1 class="head" id="head-1">CONTATO</h1>
+                    <div class="data">
+                        <p><b>Celular:</b>  (84)99787-4546</p>
+                        <p><b>Telefone:</b> (84)99788-4686</p>
+                        <p><b>Endereço:</b> Rua Lírio dos Vales/sn, centro - Caicó/RN</p>
+                        <p><b>Cep:</b> 59300-000</p>
+                    </div>
+                </div>
+                <div class="contact-info2">
+                    <h1 class="head">LOCALIZAÇÃO</h1>
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe width="450" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=59300000&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <style>.mapouter{position:relative;text-align:center;left:50%;transform: translateX(-50%);height:300px;width:450px;}</style>
+                            <style>.gmap_canvas {overflow:hidden;background:none!important;border-radius:1em;height:300px;width:450px;}</style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

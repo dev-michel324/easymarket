@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/alerts.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="brand" id="grid-1">
+                    <img src="img/logo.png" alt="logotipo">
+                </div>
+                <div id="grid-2">
+                    <ul class="options">
+                        <a href="dashboard.html"><li>Dashboard</li></a>
+                        <a href="goods.html"><li>Mercadorias</li></a>
+                        <a href="users.html"><li class="active">Usuários</li></a>
+                    </ul>
+                </div>
+                <div id="grid-3">
+                    <div id="user-loged">
+                        <p>Logado como - <b id="user"></b></p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Usuários</h1>
+            <div class="form">
+                <input id="user_name" type="text" placeholder="Nome">
+                <input id="user_username" type="text" placeholder="Nome de Usuário">
+                <input id="user_password" type="password" placeholder="Senha">
+                <button onclick="add_user()">Adicionar</button>
+            </div>
+            <!-- <button onclick="loggout()">Sair</button> -->
+
+            <table id="table-users">
+                <thead>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody id="data-table"></tbody>
+            </table>
+            
+            
+            <div id="edit-form"></div>
+
+            <p id="obs">OBS: As senha são criptografadas, seria uma falha de segurança mostra-las diretamente.</p>
+        </div>
+
+        
+    </main>
+
+    
+    <script src="js/dashboard.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/users.js"></script>
+</body>
+</html>
