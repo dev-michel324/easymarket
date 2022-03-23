@@ -1,9 +1,3 @@
-let buffer = ""
-for(i in users){
-    buffer += "<tr><td>"+users[i]['name']+"</td><td>"+users[i]['username']+"</td><td>"+users[i]['password']+"</td><td><img src='img/pencil.png' class='icon' onclick='get_user("+i+")'><img src='img/delete.png' class='icon' onclick='remove_user("+i+")'></td></tr>\n"
-}
-document.getElementById("data-table").innerHTML = buffer
-
 function encrypt(password){
     password = password.toLowerCase()
     let output = ""
@@ -74,20 +68,22 @@ function cancel_edit(){
     document.getElementById("edit-form").innerHTML = ""
 }
 
-function remove_user(num){
-    if(users[num]['username']==localStorage.getItem('user')){
-        alert("Você não possui permissão para remover seu próprio usuário.")
-    }
-    else{
-        users.splice(num, 1)
-        updateTable()
-    }
-}
+// function remove_user(num){
+//     if(users[num]['username']==localStorage.getItem('user')){
+//         alert("Você não possui permissão para remover seu próprio usuário.")
+//     }
+//     else{
+//         users.splice(num, 1)
+//         updateTable()
+//     }
+// }
 
 function updateTable(){
     let buffer = ""
     for(i in users){
-        buffer += "<tr><td>"+users[i]['name']+"</td><td>"+users[i]['username']+"</td><td>"+users[i]['password']+"</td><td><img src='img/pencil.png' class='icon' onclick='get_user("+i+")'><img src='img/delete.png' class='icon' onclick='remove_user("+i+")'></td></tr>\n"
+        buffer += "<tr><td>"+users[i]['name']+"</td><td>"+users[i]['username']+"</td><td>"+users[i]['password']+"</td><td><img src='img/pencil.png' class='icon' onclick='get_user("+i+")'><img src='img/delete.png' class='icon' onclick='remove("+i+", 0)'></td></tr>\n"
     }
     document.getElementById("data-table").innerHTML = buffer
 }
+
+updateTable()

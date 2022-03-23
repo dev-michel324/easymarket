@@ -1,5 +1,7 @@
-if(localStorage.getItem('loged')==null || localStorage.getItem('loged') == false)
+window.onload = function(){
+    if(localStorage.getItem('loged')==null || localStorage.getItem('loged') == false)
     window.location.href = "index.html"
+}
 
 function loggout(){
     localStorage.clear()
@@ -8,5 +10,7 @@ function loggout(){
 
 window.document.onload = document.getElementById('user').innerText = localStorage.getItem('user')
 
-document.getElementById('revenues').innerText = localStorage.getItem('resources')
-document.getElementById('closed-sell').innerText = localStorage.getItem('sell')
+if(window.location.href.includes("dashboard.html")){
+    document.getElementById('revenues').innerText = localStorage.getItem('resources')
+    document.getElementById('closed-sell').innerText = localStorage.getItem('sell')
+}

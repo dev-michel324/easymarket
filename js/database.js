@@ -1,10 +1,14 @@
+//OBS: Firefox contains a bug that did not possible use localStorage
+
+window.onload = function(){
+    if(window.location.href.includes("index.html") && localStorage.getItem('loged')=="true")
+        window.location.href = "dashboard.html"
+}
+
+let cart = []
+
 charactersPass = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','5','6','7','8','9','0','%','!','@','#','$','.']
 subCharacter =   ['1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','!','@','#','$','%','&','(']
-
-// let loged = localStorage.getItem('loged')
-// if(loged){
-//     window.location.href = 'dashboard.html'
-// }
 
 // first users with password encrypted
 let users = [
@@ -13,7 +17,7 @@ let users = [
     {name: 'Beatriz', username: 'beatriz12', password: '291$qrs'}
 ]
 
-products = [
+let products = [
     {name: "Arroz", value: 8.75, serial: 65444564},
     {name: "Amendoim", value: 4.77, serial: 654564},
     {name: "Feijão", value: 9.15, serial: 328987},
@@ -49,7 +53,6 @@ function decrypt(pass){
 }
 
 function login(){
-
     let username = document.getElementById('username').value
     let password = document.getElementById('password').value
 
@@ -64,4 +67,27 @@ function login(){
         }
     }
     alert("Usuário ou senha inválidos!")
+}
+
+function remove(position, type){
+    if(type > -1 && type < 3){
+        let data = [users, products, cart] //0 1 2
+        if(type==0){
+            if(data[type][position]['username']==localStorage.getItem('user')){
+                alert("Você não possui permissão para remover seu próprio usuário.")
+            }else{
+                data[type].splice(position, 1)
+                updateTable()
+            }
+        }else if(type==2){
+            total -= parseFloat(data[type][position]['total'])
+            data[type].splice(position, 1)
+            document.getElementById('total').innerText = total.toFixed(2)
+            updateTable()
+            return
+        }else{
+            data[type].splice(position, 1)
+            updateTable()
+        }
+    }
 }

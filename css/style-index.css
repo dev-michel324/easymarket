@@ -4,7 +4,22 @@
 }
 
 body{
-    background-color: rgba(209, 208, 208, 0.5);
+    background: linear-gradient(-45deg, #ffffff, #cacaca, #999292, #a17b7b);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 #login:hover{
@@ -23,7 +38,7 @@ body{
 
 nav{
     width: 100%;
-    border-bottom: 3px solid rgba(100, 47, 3, 0.678);
+    border-bottom: 3px solid rgba(100, 47, 3, 0.600);
     margin-bottom: 2em;
 }
 
@@ -99,6 +114,7 @@ nav img{
 .products-container{
     padding-top: 2em;
     padding-bottom: 2em;
+    animation: fadeIn ease 3s ;
     border-bottom: 3px solid grey;
     display: flex;
     justify-content: center;
@@ -133,6 +149,7 @@ nav img{
 
 .sub-info1{
     background-image: url("../img/padaria.jpg");
+    animation: fadeIn ease 10s ;
     background-size: cover;
     width: 85%;
     border-radius: 0 2em 2em 0;
@@ -141,8 +158,16 @@ nav img{
 .sub-info2{
     width: 100%;
     padding-left: 5em;
+    animation: fadeIn ease 15s;
     padding-right: 5em;
 }
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+
 
 .info-div{
     text-align: justify;

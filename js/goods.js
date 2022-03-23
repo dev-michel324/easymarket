@@ -1,5 +1,3 @@
-let cart = []
-
 let total = 0
 let sell = localStorage.getItem('sell')
 
@@ -8,12 +6,6 @@ if(sell===null){
 }
 
 document.getElementById('revenues').innerText = localStorage.getItem('resources')
-
-let buffer = ""
-for(i in products){
-    buffer += "<tr><td>"+products[i]["name"]+"</td><td>"+products[i]["value"]+"</td><td>"+products[i]["serial"]+"</td><td><img src='img/pencil.png' class='icon' onclick='get_product("+i+")'><img src='img/delete.png' class='icon' onclick='remove_product("+i+")'><img src='img/cart.png' class='icon' onclick='getProductFromTable("+i+")'></td></tr>\n"
-}
-document.getElementById("data-table").innerHTML = buffer
 
 function add_product(){
     let name = document.getElementById("product_name").value
@@ -79,11 +71,6 @@ function cancel_edit(){
     document.getElementById("edit-form").innerHTML = ""
 }
 
-function remove_product(num){
-    products.splice(num, 1)
-    updateTable()
-}
-
 function addProductFromTableToCart(num){
     let qntd = document.getElementById('qntdAddCart').value
     if(qntd>0){
@@ -122,14 +109,6 @@ function addProductFromFormToCart(){
     }
 }
 
-function remove_product_cart(num){
-    document.getElementById('total').innerText = (total-cart[num]['value'])
-    total -= cart[num]['total']
-    cart.splice(num, 1)
-    updateTable()
-    document.getElementById('total').innerText = total.toFixed(2)
-}
-
 function getProductFromTable(num){
     let buffer = "<div class='form-edit-product'><input type='text' placeholder='Nome' value='"+products[num]["name"]+"' id='cart_name' disabled><input type='text' placeholder='Valor' value='"+products[num]["value"]+"' id='cart_value' disabled><input type='text' placeholder='Serial' value='"+products[num]['serial']+"' id='cart_serial' disabled><input type='number' placeholder='Quantidade' id='qntdAddCart'><div class='buttons'><button id='btn-cancel' onclick='cancel_edit()'>Cancelar</button><button id='btn-save' onclick='addProductFromTableToCart("+num+")'>Adicionar</button></div></div>"
     document.getElementById("edit-form").innerHTML = buffer
@@ -137,20 +116,24 @@ function getProductFromTable(num){
 
 function purchase(){
     let buffer = localStorage.getItem('resources')
-    if(buffer===null){
-        localStorage.setItem('resources', total)
-    }else{
-        let n = parseFloat(localStorage.getItem('resources'))+total
-        localStorage.setItem('resources', n.toFixed(2))
-    }
-    let n = parseInt(localStorage.getItem('sell')) + 1
-    localStorage.setItem('sell', n)
+    if(total>0){
+        if(buffer===null){
+            localStorage.setItem('resources', total)
+        }else{
+            let n = parseFloat(localStorage.getItem('resources'))+total
+            localStorage.setItem('resources', n.toFixed(2))
+        }
+        let n = parseInt(localStorage.getItem('sell')) + 1
+        localStorage.setItem('sell', n)
 
-    total = 0
-    document.getElementById('total').innerText = total
-    cart = []
-    updateTable()
-    document.getElementById('revenues').innerText = localStorage.getItem('resources')
+        total = 0
+        document.getElementById('total').innerText = total
+        cart = []
+        updateTable()
+        document.getElementById('revenues').innerText = localStorage.getItem('resources')
+    }else{
+        return
+    }
 }
 
 function getProductFromTableCart(num){
@@ -176,14 +159,18 @@ function editProductFromTableCart(num){
 }
 
 function updateTable(){
+    document.getElementById('data-table').innerHTML = ""
+    document.getElementById('data-table-cart').innerHTML = ""
     let buffer = ""
-    let buffer1 = ""
     for(i in products){
-        buffer += "<tr><td>"+products[i]["name"]+"</td><td>"+products[i]["value"]+"</td><td>"+products[i]["serial"]+"</td><td><img src='img/pencil.png' class='icon' onclick='get_product("+i+")'><img src='img/delete.png' class='icon' onclick='remove_product("+i+")'><img src='img/cart.png' class='icon' onclick='getProductFromTable("+i+")'></td></tr>\n"
+        buffer = "<tr><td>"+products[i]["name"]+"</td><td>"+products[i]["value"]+"</td><td>"+products[i]["serial"]+"</td><td><img src='img/pencil.png' class='icon' onclick='get_product("+i+")'><img src='img/delete.png' class='icon' onclick='remove("+i+", 1)'><img src='img/cart.png' class='icon' onclick='getProductFromTable("+i+")'></td></tr>\n"
+        document.getElementById("data-table").innerHTML += buffer
     }
-    document.getElementById("data-table").innerHTML = buffer
+    buffer = ""
     for(i in cart){
-        buffer1 += "<tr><td>"+cart[i]['name']+"</td><td>"+cart[i]['value']+"</td><td>"+cart[i]['serial']+"</td><td>"+cart[i]['qntd']+"</td><td>"+cart[i]['total']+"</td><td><img src='img/pencil.png' class='icon' onclick='getProductFromTableCart("+i+")'><img src='img/delete.png' class='icon' onclick='remove_product_cart("+i+")'></td></tr>\n"
+        buffer = "<tr><td>"+cart[i]['name']+"</td><td>"+cart[i]['value']+"</td><td>"+cart[i]['serial']+"</td><td>"+cart[i]['qntd']+"</td><td>"+cart[i]['total']+"</td><td><img src='img/pencil.png' class='icon' onclick='getProductFromTableCart("+i+")'><img src='img/delete.png' class='icon' onclick='remove("+i+", 2)'></td></tr>\n"
+        document.getElementById('data-table-cart').innerHTML += buffer
     }
-    document.getElementById('data-table-cart').innerHTML = buffer1
 }
+
+updateTable()
